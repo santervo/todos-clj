@@ -1,0 +1,12 @@
+{
+  "name": "todos-cljs",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "watch": "shadow-cljs watch app"
+  },
+  "devDependencies": {
+    "shadow-cljs": "2.16.5"
+  },
+  "dependencies": {}
+}
