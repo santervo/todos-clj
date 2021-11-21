@@ -2,7 +2,7 @@
  ["src/main" "src/test"]
 
  :dependencies
- []
+ [[re-frame "1.2.0"]]
 
  :dev-http {8080 "public"}
 
