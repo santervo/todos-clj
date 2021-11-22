@@ -68,3 +68,5 @@
 (reg-sub :show (fn [db _] (:show db)))
 
 (reg-sub :all-completed? (fn [{todos :todos} _] (every? :completed todos)))
+
+(reg-sub :any-todos? (fn [{todos :todos} _] (not-empty todos)))
