@@ -5,6 +5,14 @@
 (defn todos-header []
   [:h1 "Todos"])
 
+(defn toggle-all-button-onclick [evt completed]
+  (.preventDefault evt)
+  (dispatch [:set-all-completed completed]))
+
+(defn toggle-all-button []
+  (let [all-completed? @(subscribe [:all-completed?])]
+    [:a {:href "#" :on-click #(toggle-all-button-onclick % (not all-completed?))} (if all-completed? "A" "V")]))
+
 (defn todo-form-on-submit [evt message]
   (.preventDefault evt)
   (dispatch [:add-todo message])
@@ -62,6 +70,7 @@
 (defn app []
   [:<>
    [todos-header]
+   [toggle-all-button]
    [todo-form]
    [todo-list]
    [items-left-message]

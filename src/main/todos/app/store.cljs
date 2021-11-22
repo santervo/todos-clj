@@ -35,6 +35,11 @@
    (update-in db [:todos] #(toggle-todo-completed % todo))))
 
 (reg-event-db
+ :set-all-completed
+ (fn [db [_ completed]]
+   (update-in db [:todos] (fn [todos] (map #(assoc % :completed completed) todos)))))
+
+(reg-event-db
  :set-show
  (fn [db [_ show]]
    (assoc db :show show)))
@@ -61,3 +66,5 @@
 (reg-sub :todo-message (fn [db _] (:todo-message db)))
 
 (reg-sub :show (fn [db _] (:show db)))
+
+(reg-sub :all-completed? (fn [{todos :todos} _] (every? :completed todos)))
