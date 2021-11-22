@@ -3,7 +3,7 @@
             [clojure.string :as string]))
 
 (defn todos-header []
-  [:h1 "Todos"])
+  [:h1.text-8xl.text-center.text-rose-100.font-thin.mt-10.mb-5 "todos"])
 
 (defn toggle-all-button-on-click [evt completed]
   (.preventDefault evt)
@@ -68,7 +68,7 @@
       [:button {:type "button" :on-click #(dispatch [:clear-completed])} "Clear completed " cnt])))
 
 (defn app []
-  [:<>
+  [:div.max-w-screen-sm.mx-auto
    [todos-header]
    [toggle-all-button]
    [todo-form]

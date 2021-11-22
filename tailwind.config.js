@@ -10,7 +10,11 @@ module.exports = {
       : ["./public/js/cljs-runtime/*.js"],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        rose: colors.rose,
+      },
+    },
   },
   variants: {
     extend: {},
