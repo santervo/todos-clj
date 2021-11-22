@@ -46,12 +46,12 @@
    [:strong @(subscribe [:items-left-count])]
    " items left"])
 
-(defn set-show-on-click [evt show]
+(defn show-link-on-click [evt show]
   (.preventDefault evt)
   (dispatch [:set-show show]))
 
 (defn show-link [show]
-  (let [link [:a {:href "" :on-click #(set-show-on-click % show)} (string/capitalize show)]]
+  (let [link [:a {:href "" :on-click #(show-link-on-click % show)} (string/capitalize show)]]
     (if (= show @(subscribe [:show])) [:strong link] link)))
 
 (defn show-links []
